@@ -44,10 +44,9 @@ trait Serializer[A] {
 }
 
 object StringSerializer extends Serializer[String] {
-  val utf8 = Charset.forName("UTF-8")
 
-  def toBytes(str:String) = str.getBytes(utf8)
-  def fromBytes(bytes:Array[Byte]) = new String(bytes, utf8)
+  def toBytes(str:String) = str.getBytes("UTF-8")
+  def fromBytes(bytes:Array[Byte]) = new String(bytes, "UTF-8")
   def toString(str:String) = str
   def fromString(str:String) = str
 }
